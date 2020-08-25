@@ -18,7 +18,7 @@ ENVIRONMENT_VARS = ['DB_USER', 'DB_PASS', 'DB_HOST', 'DB_NAME', 'SECRET_KEY']
 def check_environment_vars(environment: list):
   for env_var in environment:
     if not (env_var in os.environ):
-      raise ValueError('Cannot find environment variable "' + env_var + '"')
+      raise EnvironmentError('Cannot find environment variable "' + env_var + '"')
 check_environment_vars(ENVIRONMENT_VARS)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
