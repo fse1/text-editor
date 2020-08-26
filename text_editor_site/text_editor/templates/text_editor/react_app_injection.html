@@ -1,9 +1,9 @@
 {% extends "text_editor/basic_page_structure.html" %}
 
 {% block body_content %}
-<main {% autoescape off %} id="{{react_page.id}}" {% endautoescape %}>
+<main {% autoescape off %}id="{{react_page.id}}"{% endautoescape %}>
 </main>
 {% for js_link in react_page.bottom_js_links %}
-<script {% autoescape off %} src="{{js_link}}" {% endautoescape %}></script>
+<script {% autoescape off %}src="{{js_link}}"{% endautoescape %}></script>
 {% endfor %}
 {% endblock %}

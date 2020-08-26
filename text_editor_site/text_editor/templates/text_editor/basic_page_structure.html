@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% for css_link in basic_page.header_links.css %}
-    <link rel="stylesheet" type="text/css" {% autoescape off %} href="{{css_link}}" {% endautoescape %}>
+    <link rel="stylesheet" type="text/css" {% autoescape off %}href="{{css_link}}"{% endautoescape %}>
     {% endfor %}
     {% for js_link in basic_page.header_links.js %}
-    <script {% autoescape off %} src="{{js_link}}" {% endautoescape %}></script>
+    <script {% autoescape off %}src="{{js_link}}"{% endautoescape %}></script>
     {% endfor %}
     <title>{{basic_page.title}}</title>
 </head>
