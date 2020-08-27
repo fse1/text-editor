@@ -1,7 +1,8 @@
 import React from "react";
+import SlateEditor from "./slate-editor.tsx";
 
 function Editor_App(props) {
-  return <h1>Hello {props.name}</h1>;
+  return <SlateEditor />;
 }
 
 export default Editor_App;

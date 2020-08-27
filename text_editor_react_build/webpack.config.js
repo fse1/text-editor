@@ -9,6 +9,12 @@ module.exports = {
       exclude: /node_modules/,
       loader: "babel-loader",
       options: { presets: ["@babel/env"] }
+     },
+     {
+      test: /\.tsx$/,
+      exclude: /node_modules/,
+      loader: "babel-loader",
+      options: { presets: ["@babel/preset-typescript"] }
      }
     ]
   },
