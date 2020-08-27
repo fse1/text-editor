@@ -1,0 +1,22 @@
+{{% autoescape off %}
+  "user": {
+    "name" : "Test"
+  },
+  "links": {
+    "createPost": "{% url 'text_editor:add_post' %}",
+    "updatePost": "/updatepost",
+    "logout": "/logout"
+  },
+  "postHistory": [
+   {
+    "id": 3,
+    "initialCreationDate": "December 25, 2020 11:00 am UTC",
+    "content": [{"type": "paragraph", "children": [{ "text": "" }]}]
+   },
+   {
+    "id": 5,
+    "initialCreationDate": "December 25, 2020 11:00 am UTC",
+    "content": [{"type": "paragraph", "children": [{ "text": "" }]}]
+   }
+  ]
+}{% endautoescape %}

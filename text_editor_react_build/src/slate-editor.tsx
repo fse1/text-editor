@@ -131,11 +131,14 @@ const HOTKEYS = {
 
 const LIST_TYPES = ['numbered-list', 'bulleted-list']
 
-const SlateEditor = () => {
-  const [value, setValue] = useState<Node[]>(initialValue)
+const SlateEditor = (props) => {
+  const [value, setValue] = useState<Node[]>(props.initialValue ? props.initialValue : initialValue)
   const renderElement = useCallback(props => <Element {...props} />, [])
   const renderLeaf = useCallback(props => <Leaf {...props} />, [])
   const editor = useMemo(() => withHistory(withReact(createEditor())), [])
+  const onChange = props.valueCallback ? useCallback(value => {setValue(value)
+                                     props.valueCallback(value)}, [])
+                   : useCallback(value => setValue(value), [])
   
   const { insertData, isVoid } = editor
   editor.isVoid = element => {
@@ -167,7 +170,8 @@ const SlateEditor = () => {
   }
 
   return (
-    <Slate editor={editor} value={value} onChange={value => setValue(value)}>
+    <Slate editor={editor} value={value} onChange={onChange}>
+     {props.editable ?
       <Toolbar>
         <MarkButton format="bold" icon="format_bold" />
         <MarkButton format="italic" icon="format_italic" />
@@ -180,10 +184,13 @@ const SlateEditor = () => {
         <BlockButton format="bulleted-list" icon="format_list_bulleted" />
         <InsertImageButton />
       </Toolbar>
+      : null
+     }
       <Editable
         renderElement={renderElement}
         renderLeaf={renderLeaf}
-        placeholder="Enter some rich text…"
+        readOnly={!props.editable}
+        placeholder="Enter some rich text, or image URLs…"
         onKeyDown={event => {
           for (const hotkey in HOTKEYS) {
             if (isHotkey(hotkey, event as any)) {
@@ -399,6 +406,15 @@ const MarkButton = ({ format, icon }) => {
 }
 
 const initialValue = [
+  {
+    type: 'paragraph',
+    children: [
+      { text: '' },
+    ],
+  },
+]
+
+const initialValue2 = [
   {
     type: 'paragraph',
     children: [
