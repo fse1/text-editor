@@ -1,5 +1,5 @@
 {{% autoescape off %}
-  "id": 3,
-  "initialCreationDate": "December 25, 2020 11:00 am UTC",
-  "content": [{"type": "paragraph", "children": [{ "text": "" }]}]
+  "id": {{id}},
+  "initialCreationDate": "{{creation_date}} UTC",
+  "content": {{content}}
 }{% endautoescape %}

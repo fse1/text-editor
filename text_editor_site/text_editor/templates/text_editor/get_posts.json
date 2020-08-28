@@ -1,22 +1,16 @@
 {{% autoescape off %}
   "user": {
-    "name" : "Test"
+    "name" : "{{user.name}}"
   },
   "links": {
-    "createPost": "{% url 'text_editor:add_post' %}",
-    "updatePost": "/updatepost",
-    "logout": "/logout"
+    "createPost": "{{links.create_post}}",
+    "logout": "{{links.logout}}"
   },
-  "postHistory": [
+  "postHistory": [{% for post in posts %}
    {
-    "id": 3,
-    "initialCreationDate": "December 25, 2020 11:00 am UTC",
-    "content": [{"type": "paragraph", "children": [{ "text": "" }]}]
-   },
-   {
-    "id": 5,
-    "initialCreationDate": "December 25, 2020 11:00 am UTC",
-    "content": [{"type": "paragraph", "children": [{ "text": "" }]}]
-   }
+    "id": {{post.id}},
+    "initialCreationDate": "{{post.creation_time}} UTC",
+    "content": {{post.content}}
+   }{% if not forloop.last %},{% endif %}{% endfor %}
   ]
 }{% endautoescape %}

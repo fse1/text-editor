@@ -112,6 +112,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Authentication Values
+LOGIN_REDIRECT_URL = 'text_editor:editor'
+LOGIN_URL = 'text_editor:login'
+LOGOUT_REDIRECT_URL = 'text_editor:login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
