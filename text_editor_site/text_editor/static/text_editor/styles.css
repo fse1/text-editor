@@ -31,3 +31,47 @@ code {
   background-color: #eee;
   padding: 0.2rem;
 }
+
+body {
+  margin: 0;
+}
+
+nav.navigation-bar {
+  background-color: #4da6ff;
+  padding: 0.3rem;
+}
+
+nav.navigation-bar .navigation-bar-left {
+  display: inline-block;
+}
+
+main .create-post-area {
+  text-align: center;
+  padding-right: 20%;
+  padding-left: 20%;
+}
+
+main .slate-editor {
+  text-align: left;
+  border: 0.1rem solid #666666;
+  padding: 0.3rem;
+}
+
+main .post-history-area {
+  text-align: center;
+  padding-right: 20%;
+  padding-left: 20%;
+}
+
+h3 {
+  text-align: left;
+}
+
+main.login-form {
+  text-align: center;
+  margin-right: 20%;
+  margin-left: 20%;
+  border: 0.1rem solid #666666;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}

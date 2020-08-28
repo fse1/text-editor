@@ -25,7 +25,7 @@ export function CreatePosts(props) {
     
     return (
     <Fragment>
-      <form action={props.links.createPost} method="post" encType="multipart/form-data" onSubmit={(e) => handleSubmit(e, props.links.createPost, props.setPostHistory)}>
+      <form className="create-post-form" action={props.links.createPost} method="post" encType="multipart/form-data" onSubmit={(e) => handleSubmit(e, props.links.createPost, props.setPostHistory)}>
         <input type="hidden" name="post-content" value={JSON.stringify(props.editorState)} />
         <input type="submit" value="Create Post" />
       </form>
@@ -34,11 +34,11 @@ export function CreatePosts(props) {
   }
   
   return (
-  <Fragment>
+  <div className="create-post-area">
     <h1>Create New Post</h1>
-    <SlateEditor editable={true} valueCallback={setEditorState} initialValue={initialValue} />
-    <PostSubmit editorState={editorState} links={props.links} setPostHistory={props.setPostHistory} />
-  </Fragment>
+    <div className="slate-editor"><SlateEditor editable={true} valueCallback={setEditorState} initialValue={initialValue} /></div><br />
+    <PostSubmit editorState={editorState} links={props.links} setPostHistory={props.setPostHistory} /><br />
+  </div>
   );
   
 }
@@ -46,18 +46,19 @@ export function CreatePosts(props) {
 export function PostHistory(props) {
   
   return (
-  <Fragment>
+  <div className="post-history-area">
     <h1>Post History (Newest to Oldest)</h1>
+    <br />
     {props.postHistory.map((post) => 
-      <Fragment>
+      <Fragment key={post.id}>
         <div>
-          <h2>Post Creation Date: {post.initialCreationDate}</h2>
-          <SlateEditor editable={false} initialValue={post.content} />
+          <h3>Post Creation Date: {post.initialCreationDate}</h3>
+          <div className="slate-editor"><SlateEditor editable={false} initialValue={post.content} /></div>
         </div>
-        <hr />
+        <br />
       </Fragment>
     )}
-  </Fragment>
+  </div>
   );
 }
 

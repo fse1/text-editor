@@ -31,9 +31,6 @@ function EditorApp(props) {
   }
   else
   {
-    console.log(postHistory);
-    console.log(linkInfo);
-    console.log(userInfo);
     return (
     <Fragment>
       <NavBar user={userInfo} links={linkInfo} />
